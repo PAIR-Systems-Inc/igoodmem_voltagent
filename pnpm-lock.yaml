@@ -994,10 +994,10 @@ importers:
     dependencies:
       '@copilotkit/react-core':
         specifier: ^1.50.0
-        version: 1.50.0(@types/react-dom@19.2.3)(@types/react@19.2.7)(react-dom@19.2.3)(react@19.2.3)(zod@4.3.5)
+        version: 1.50.0(@types/react-dom@19.2.3)(@types/react@19.2.7)(react-dom@19.2.3)(react@19.2.3)(zod@3.25.76)
       '@copilotkit/react-ui':
         specifier: ^1.50.0
-        version: 1.50.0(@types/react-dom@19.2.3)(@types/react@19.2.7)(react-dom@19.2.3)(react@19.2.3)(zod@4.3.5)
+        version: 1.50.0(@types/react-dom@19.2.3)(@types/react@19.2.7)(react-dom@19.2.3)(react@19.2.3)(zod@3.25.76)
       react:
         specifier: ^19.2.3
         version: 19.2.3
@@ -1170,7 +1170,7 @@ importers:
         version: link:../../packages/server-hono
       ai:
         specifier: ^6.0.0
-        version: 6.0.3(zod@4.3.5)
+        version: 6.0.3(zod@3.25.76)
     devDependencies:
       '@types/node':
         specifier: ^24.2.1
@@ -1389,7 +1389,7 @@ importers:
         version: link:../../packages/server-hono
       ai:
         specifier: ^6.0.0
-        version: 6.0.3(zod@4.3.5)
+        version: 6.0.3(zod@3.25.76)
     devDependencies:
       '@types/node':
         specifier: ^24.2.1
@@ -2104,7 +2104,7 @@ importers:
         version: 6.0.3(zod@3.25.76)
       nuxt:
         specifier: ^4.1.2
-        version: 4.1.3(@biomejs/biome@1.9.4)(@types/node@24.2.1)(@vue/compiler-sfc@3.5.22)(eslint@9.33.0)(typescript@5.9.3)(vite@7.2.7)
+        version: 4.1.3(@biomejs/biome@1.9.4)(@emnapi/core@1.9.1)(@emnapi/runtime@1.9.1)(@types/node@24.2.1)(@vue/compiler-sfc@3.5.22)(eslint@9.33.0)(typescript@5.9.3)(vite@7.2.7)
       vue:
         specifier: ^3.5.22
         version: 3.5.22(typescript@5.9.3)
@@ -2191,7 +2191,7 @@ importers:
     dependencies:
       '@openrouter/ai-sdk-provider':
         specifier: ^2.3.1
-        version: 2.3.1(ai@6.0.3)(zod@4.3.5)
+        version: 2.3.1(ai@6.0.3)(zod@3.25.76)
       '@voltagent/cli':
         specifier: ^0.1.21
         version: link:../../packages/cli
@@ -2209,7 +2209,7 @@ importers:
         version: link:../../packages/server-hono
       ai:
         specifier: ^6.0.0
-        version: 6.0.3(zod@4.3.5)
+        version: 6.0.3(zod@3.25.76)
     devDependencies:
       '@types/node':
         specifier: ^24.2.1
@@ -2576,7 +2576,7 @@ importers:
         version: link:../../packages/server-hono
       ai:
         specifier: ^6.0.0
-        version: 6.0.3(zod@4.3.5)
+        version: 6.0.3(zod@3.25.76)
     devDependencies:
       '@types/node':
         specifier: ^24.2.1
@@ -3341,7 +3341,7 @@ importers:
         version: link:../../packages/server-hono
       ai:
         specifier: ^6.0.0
-        version: 6.0.3(zod@4.3.5)
+        version: 6.0.3(zod@3.25.76)
     devDependencies:
       '@types/node':
         specifier: ^24.2.1
@@ -3804,7 +3804,7 @@ importers:
         version: link:../logger
       ai:
         specifier: ^6.0.0
-        version: 6.0.3(zod@4.3.5)
+        version: 6.0.3(zod@3.25.76)
 
   packages/core:
     dependencies:
@@ -4091,6 +4091,22 @@ importers:
         specifier: ^2.0.2
         version: link:../sdk
 
+  packages/goodmem:
+    dependencies:
+      '@voltagent/internal':
+        specifier: ^1.0.2
+        version: link:../internal
+      zod:
+        specifier: ^3.25.0
+        version: 3.25.76
+    devDependencies:
+      '@vitest/coverage-v8':
+        specifier: ^3.2.4
+        version: 3.2.4(vitest@3.2.4)
+      '@voltagent/core':
+        specifier: ^2.3.7
+        version: link:../core
+
   packages/internal:
     dependencies:
       type-fest:
@@ -4143,7 +4159,7 @@ importers:
         version: link:../logger
       ai:
         specifier: ^6.0.0
-        version: 6.0.3(zod@4.3.5)
+        version: 6.0.3(zod@3.25.76)
 
   packages/logger:
     dependencies:
@@ -4209,7 +4225,7 @@ importers:
         version: link:../core
       ai:
         specifier: ^6.0.0
-        version: 6.0.3(zod@4.3.5)
+        version: 6.0.3(zod@3.25.76)
 
   packages/rag:
     dependencies:
@@ -4231,7 +4247,7 @@ importers:
         version: link:../internal
       ai:
         specifier: ^6.0.0
-        version: 6.0.3(zod@4.3.5)
+        version: 6.0.3(zod@3.25.76)
       redis:
         specifier: ^4.7.0
         version: 4.7.1
@@ -4473,7 +4489,7 @@ importers:
         version: link:../logger
       ai:
         specifier: ^6.0.0
-        version: 6.0.3(zod@4.3.5)
+        version: 6.0.3(zod@3.25.76)
 
   packages/voice:
     dependencies:
@@ -4523,7 +4539,7 @@ importers:
         version: link:../core
       ai:
         specifier: ^6.0.0
-        version: 6.0.3(zod@4.3.5)
+        version: 6.0.3(zod@3.25.76)
 
 packages:
 
@@ -4876,17 +4892,6 @@ packages:
       '@vercel/oidc': 3.0.5
       zod: 3.25.76
 
-  /@ai-sdk/gateway@3.0.2(zod@4.3.5):
-    resolution: {integrity: sha512-giJEg9ob45htbu3iautK+2kvplY2JnTj7ir4wZzYSQWvqGatWfBBfDuNCU5wSJt9BCGjymM5ZS9ziD42JGCZBw==}
-    engines: {node: '>=18'}
-    peerDependencies:
-      zod: ^3.25.76 || ^4.1.8
-    dependencies:
-      '@ai-sdk/provider': 3.0.0
-      '@ai-sdk/provider-utils': 4.0.1(zod@4.3.5)
-      '@vercel/oidc': 3.0.5
-      zod: 4.3.5
-
   /@ai-sdk/google-vertex@3.0.25(zod@3.25.76):
     resolution: {integrity: sha512-X4VRfFHTMr50wo8qvoA4WmxmehSAMzEAiJ5pPn0/EPB4kxytz53g7BijRBDL+MZpqXRNiwF3taf4p3P1WUMnVA==}
     engines: {node: '>=18'}
@@ -5238,6 +5243,7 @@ packages:
       '@standard-schema/spec': 1.1.0
       eventsource-parser: 3.0.6
       zod: 4.3.5
+    dev: false
 
   /@ai-sdk/provider-utils@4.0.8(zod@3.25.76):
     resolution: {integrity: sha512-ns9gN7MmpI8vTRandzgz+KK/zNMLzhrriiKECMt4euLtQFSBgNfydtagPOX4j4pS1/3KvHF6RivhT3gNQgBZsg==}
@@ -8848,7 +8854,7 @@ packages:
       '@bufbuild/protobuf': 2.10.1
     dev: false
 
-  /@copilotkit/react-core@1.50.0(@types/react-dom@19.2.3)(@types/react@19.2.7)(react-dom@19.2.3)(react@19.2.3)(zod@4.3.5):
+  /@copilotkit/react-core@1.50.0(@types/react-dom@19.2.3)(@types/react@19.2.7)(react-dom@19.2.3)(react@19.2.3)(zod@3.25.76):
     resolution: {integrity: sha512-JfUEvmgXgPz7wIQq9EFXWGDMtYLIVKSNqPdJROEomZXLhREDlxpg+jr5KHvoOPUlSnVLzuPObRKSdeJTwVOGsQ==}
     peerDependencies:
       react: ^18 || ^19 || ^19.0.0-rc
@@ -8865,7 +8871,7 @@ packages:
       react-dom: 19.2.3(react@19.2.3)
       react-markdown: 8.0.7(@types/react@19.2.7)(react@19.2.3)
       untruncate-json: 0.0.1
-      zod: 4.3.5
+      zod: 3.25.76
     transitivePeerDependencies:
       - '@types/react'
       - '@types/react-dom'
@@ -8874,12 +8880,12 @@ packages:
       - supports-color
     dev: false
 
-  /@copilotkit/react-ui@1.50.0(@types/react-dom@19.2.3)(@types/react@19.2.7)(react-dom@19.2.3)(react@19.2.3)(zod@4.3.5):
+  /@copilotkit/react-ui@1.50.0(@types/react-dom@19.2.3)(@types/react@19.2.7)(react-dom@19.2.3)(react@19.2.3)(zod@3.25.76):
     resolution: {integrity: sha512-BB4d5yrf3n3P0stCI7DLLo22EhesNz4ELuSKFT39P+GEjKMVcpZu+mR6NgkbIkrmU6cFxxsrJKv20p7T+EBnoA==}
     peerDependencies:
       react: ^18 || ^19 || ^19.0.0-rc
     dependencies:
-      '@copilotkit/react-core': 1.50.0(@types/react-dom@19.2.3)(@types/react@19.2.7)(react-dom@19.2.3)(react@19.2.3)(zod@4.3.5)
+      '@copilotkit/react-core': 1.50.0(@types/react-dom@19.2.3)(@types/react@19.2.7)(react-dom@19.2.3)(react@19.2.3)(zod@3.25.76)
       '@copilotkit/runtime-client-gql': 1.50.0(react@19.2.3)
       '@copilotkit/shared': 1.50.0
       '@headlessui/react': 2.2.9(react-dom@19.2.3)(react@19.2.3)
@@ -9189,22 +9195,12 @@ packages:
       tslib: 2.8.1
     dev: true
 
-  /@emnapi/core@1.7.1:
-    resolution: {integrity: sha512-o1uhUASyo921r2XtHYOHy7gdkGLge8ghBEQHMWmyJFoXlpU58kIrhhN3w26lpQb6dspetweapMn2CSNwQ8I4wg==}
-    requiresBuild: true
-    dependencies:
-      '@emnapi/wasi-threads': 1.1.0
-      tslib: 2.8.1
-    dev: false
-    optional: true
-
   /@emnapi/core@1.9.1:
     resolution: {integrity: sha512-mukuNALVsoix/w1BJwFzwXBN/dHeejQtuVzcDsfOEsdpCumXb/E9j8w11h5S54tT1xhifGfbbSm/ICrObRb3KA==}
     requiresBuild: true
     dependencies:
       '@emnapi/wasi-threads': 1.2.0
       tslib: 2.8.1
-    dev: true
     optional: true
 
   /@emnapi/runtime@1.4.5:
@@ -9213,19 +9209,11 @@ packages:
       tslib: 2.8.1
     dev: true
 
-  /@emnapi/runtime@1.7.1:
-    resolution: {integrity: sha512-PVtJr5CmLwYAU9PZDMITZoR5iAOShYREoR45EyyLrbntV50mdePTgUn4AmOw90Ifcj+x2kRjdzr1HP3RrNiHGA==}
-    requiresBuild: true
-    dependencies:
-      tslib: 2.8.1
-    optional: true
-
   /@emnapi/runtime@1.9.1:
     resolution: {integrity: sha512-VYi5+ZVLhpgK4hQ0TAjiQiZ6ol0oe4mBx7mVv7IflsiEp0OWoVsp/+f9Vc1hOhE0TtkORVrI1GvzyreqpgWtkA==}
     requiresBuild: true
     dependencies:
       tslib: 2.8.1
-    dev: true
     optional: true
 
   /@emnapi/wasi-threads@1.0.4:
@@ -9234,20 +9222,11 @@ packages:
       tslib: 2.8.1
     dev: true
 
-  /@emnapi/wasi-threads@1.1.0:
-    resolution: {integrity: sha512-WI0DdZ8xFSbgMjR1sFsKABJ/C5OnRrjT06JXbZKexJGrDuPTzZdDYfFlsgcCXCyf+suG5QU2e/y1Wo2V/OapLQ==}
-    requiresBuild: true
-    dependencies:
-      tslib: 2.8.1
-    dev: false
-    optional: true
-
   /@emnapi/wasi-threads@1.2.0:
     resolution: {integrity: sha512-N10dEJNSsUx41Z6pZsXU8FjPjpBEplgH24sfkmITrBED1/U2Esum9F3lfLrMjKHHjmi557zQn7kR9R+XWXu5Rg==}
     requiresBuild: true
     dependencies:
       tslib: 2.8.1
-    dev: true
     optional: true
 
   /@envelop/core@5.4.0:
@@ -10763,7 +10742,7 @@ packages:
     cpu: [wasm32]
     requiresBuild: true
     dependencies:
-      '@emnapi/runtime': 1.7.1
+      '@emnapi/runtime': 1.9.1
     optional: true
 
   /@img/sharp-wasm32@0.34.4:
@@ -10772,7 +10751,7 @@ packages:
     cpu: [wasm32]
     requiresBuild: true
     dependencies:
-      '@emnapi/runtime': 1.7.1
+      '@emnapi/runtime': 1.9.1
     optional: true
 
   /@img/sharp-win32-arm64@0.34.4:
@@ -12336,8 +12315,8 @@ packages:
     resolution: {integrity: sha512-ZVWUcfwY4E/yPitQJl481FjFo3K22D6qF0DuFH6Y/nbnE11GY5uguDxZMGXPQ8WQ0128MXQD7TnfHyK4oWoIJQ==}
     requiresBuild: true
     dependencies:
-      '@emnapi/core': 1.7.1
-      '@emnapi/runtime': 1.7.1
+      '@emnapi/core': 1.9.1
+      '@emnapi/runtime': 1.9.1
       '@tybys/wasm-util': 0.10.1
     dev: false
     optional: true
@@ -12350,16 +12329,6 @@ packages:
       '@tybys/wasm-util': 0.9.0
     dev: true
 
-  /@napi-rs/wasm-runtime@1.1.1:
-    resolution: {integrity: sha512-p64ah1M1ld8xjWv3qbvFwHiFVWrq1yFvV4f7w+mzaqiR4IlSgkqhcRdHwsGgomwzBH51sRY4NEowLxnaBjcW/A==}
-    requiresBuild: true
-    dependencies:
-      '@emnapi/core': 1.7.1
-      '@emnapi/runtime': 1.7.1
-      '@tybys/wasm-util': 0.10.1
-    dev: false
-    optional: true
-
   /@napi-rs/wasm-runtime@1.1.2(@emnapi/core@1.9.1)(@emnapi/runtime@1.9.1):
     resolution: {integrity: sha512-sNXv5oLJ7ob93xkZ1XnxisYhGYXfaG9f65/ZgYuAu3qt7b3NadcOEhLvx28hv31PgX8SZJRYrAIPQilQmFpLVw==}
     requiresBuild: true
@@ -12370,7 +12339,6 @@ packages:
       '@emnapi/core': 1.9.1
       '@emnapi/runtime': 1.9.1
       '@tybys/wasm-util': 0.10.1
-    dev: true
     optional: true
 
   /@neon-rs/load@0.0.4:
@@ -14667,15 +14635,15 @@ packages:
     resolution: {integrity: sha512-U69T3ItWHvLwGg5eJ0n3I62nWuE6ilHlmz7zM0npLBRvPRd7e6NYmg54vvRtP5mZG7kZqZCFVdsTWo7BPtBujg==}
     dev: true
 
-  /@openrouter/ai-sdk-provider@2.3.1(ai@6.0.3)(zod@4.3.5):
+  /@openrouter/ai-sdk-provider@2.3.1(ai@6.0.3)(zod@3.25.76):
     resolution: {integrity: sha512-RkOUMSetrbS1i8kW1wIkfuq0RpXtiJOiFCx/AfEjGNZA8xOjdAosqPiImo2805Q6Px/9k1LUxu8NUmlSnrWrqg==}
     engines: {node: '>=18'}
     peerDependencies:
       ai: ^6.0.0
       zod: ^3.25.0 || ^4.0.0
     dependencies:
-      ai: 6.0.3(zod@4.3.5)
-      zod: 4.3.5
+      ai: 6.0.3(zod@3.25.76)
+      zod: 3.25.76
     dev: false
 
   /@opentelemetry/api-logs@0.203.0:
@@ -15101,13 +15069,16 @@ packages:
     dev: false
     optional: true
 
-  /@oxc-minify/binding-wasm32-wasi@0.94.0:
+  /@oxc-minify/binding-wasm32-wasi@0.94.0(@emnapi/core@1.9.1)(@emnapi/runtime@1.9.1):
     resolution: {integrity: sha512-0bOaEuh7QX8MfqyrRjNPOWhcsYl0IGoHX1nPtFIFGm0f/AJsJ+3wbyI9WvkAOXZmRgI9DMKGbDJdU6J59JxA7w==}
     engines: {node: '>=14.0.0'}
     cpu: [wasm32]
     requiresBuild: true
     dependencies:
-      '@napi-rs/wasm-runtime': 1.1.1
+      '@napi-rs/wasm-runtime': 1.1.2(@emnapi/core@1.9.1)(@emnapi/runtime@1.9.1)
+    transitivePeerDependencies:
+      - '@emnapi/core'
+      - '@emnapi/runtime'
     dev: false
     optional: true
 
@@ -15237,13 +15208,16 @@ packages:
     dev: false
     optional: true
 
-  /@oxc-parser/binding-wasm32-wasi@0.94.0:
+  /@oxc-parser/binding-wasm32-wasi@0.94.0(@emnapi/core@1.9.1)(@emnapi/runtime@1.9.1):
     resolution: {integrity: sha512-VoCtQZIsRZN8mszbdizh+5MwzbgbMxsPgT2hOzzILQLNY2o2OXG3xSiFNFakVhbWc9qSTaZ/MRDsqR+IM3fLFw==}
     engines: {node: '>=14.0.0'}
     cpu: [wasm32]
     requiresBuild: true
     dependencies:
-      '@napi-rs/wasm-runtime': 1.1.1
+      '@napi-rs/wasm-runtime': 1.1.2(@emnapi/core@1.9.1)(@emnapi/runtime@1.9.1)
+    transitivePeerDependencies:
+      - '@emnapi/core'
+      - '@emnapi/runtime'
     dev: false
     optional: true
 
@@ -15381,13 +15355,16 @@ packages:
     dev: false
     optional: true
 
-  /@oxc-transform/binding-wasm32-wasi@0.94.0:
+  /@oxc-transform/binding-wasm32-wasi@0.94.0(@emnapi/core@1.9.1)(@emnapi/runtime@1.9.1):
     resolution: {integrity: sha512-rn3c2wGT3ha6j0VLykYOkXU5YyQYIeGXRsDPP7xyiZHVTVssoM0X1BuheFlgxmC1POXMT+dAAcVOFG5MdW1bnQ==}
     engines: {node: '>=14.0.0'}
     cpu: [wasm32]
     requiresBuild: true
     dependencies:
-      '@napi-rs/wasm-runtime': 1.1.1
+      '@napi-rs/wasm-runtime': 1.1.2(@emnapi/core@1.9.1)(@emnapi/runtime@1.9.1)
+    transitivePeerDependencies:
+      - '@emnapi/core'
+      - '@emnapi/runtime'
     dev: false
     optional: true
 
@@ -22543,18 +22520,6 @@ packages:
       '@ai-sdk/provider-utils': 4.0.1(zod@3.25.76)
       '@opentelemetry/api': 1.9.0
       zod: 3.25.76
-
-  /ai@6.0.3(zod@4.3.5):
-    resolution: {integrity: sha512-OOo+/C+sEyscoLnbY3w42vjQDICioVNyS+F+ogwq6O5RJL/vgWGuiLzFwuP7oHTeni/MkmX8tIge48GTdaV7QQ==}
-    engines: {node: '>=18'}
-    peerDependencies:
-      zod: ^3.25.76 || ^4.1.8
-    dependencies:
-      '@ai-sdk/gateway': 3.0.2(zod@4.3.5)
-      '@ai-sdk/provider': 3.0.0
-      '@ai-sdk/provider-utils': 4.0.1(zod@4.3.5)
-      '@opentelemetry/api': 1.9.0
-      zod: 4.3.5
 
   /ajv-errors@3.0.0(ajv@8.17.1):
     resolution: {integrity: sha512-V3wD15YHfHz6y0KdhYFjyy9vWtEVALT9UrxfN3zqlI6dMioHnJrqOYfyPKol3oqrnCM9uwkcdCwkJ0WUcbLMTQ==}
@@ -34040,7 +34005,7 @@ packages:
     dependencies:
       boolbase: 1.0.0
 
-  /nuxt@4.1.3(@biomejs/biome@1.9.4)(@types/node@24.2.1)(@vue/compiler-sfc@3.5.22)(eslint@9.33.0)(typescript@5.9.3)(vite@7.2.7):
+  /nuxt@4.1.3(@biomejs/biome@1.9.4)(@emnapi/core@1.9.1)(@emnapi/runtime@1.9.1)(@types/node@24.2.1)(@vue/compiler-sfc@3.5.22)(eslint@9.33.0)(typescript@5.9.3)(vite@7.2.7):
     resolution: {integrity: sha512-FPl+4HNIOTRYWQXtsZe5KJAr/eddFesuXABvcSTnFLYckIfnxcistwmbtPlkJhkW6vr/Jdhef5QqqYYkBsowGg==}
     engines: {node: ^20.19.0 || >=22.12.0}
     hasBin: true
@@ -34092,9 +34057,9 @@ packages:
       ofetch: 1.4.1
       ohash: 2.0.11
       on-change: 6.0.0
-      oxc-minify: 0.94.0
-      oxc-parser: 0.94.0
-      oxc-transform: 0.94.0
+      oxc-minify: 0.94.0(@emnapi/core@1.9.1)(@emnapi/runtime@1.9.1)
+      oxc-parser: 0.94.0(@emnapi/core@1.9.1)(@emnapi/runtime@1.9.1)
+      oxc-transform: 0.94.0(@emnapi/core@1.9.1)(@emnapi/runtime@1.9.1)
       oxc-walker: 0.5.2(oxc-parser@0.94.0)
       pathe: 2.0.3
       perfect-debounce: 2.0.0
@@ -34128,6 +34093,8 @@ packages:
       - '@capacitor/preferences'
       - '@deno/kv'
       - '@electric-sql/pglite'
+      - '@emnapi/core'
+      - '@emnapi/runtime'
       - '@libsql/client'
       - '@netlify/blobs'
       - '@planetscale/database'
@@ -34740,7 +34707,7 @@ packages:
     resolution: {integrity: sha512-+Sl2UErvtsoajRDKCE5/dBz4DIvHXQQnAxtQTF04OJxY0+DyZXSo5P5Bb7XYWOh81syohlYL24hbDwxedPUJCA==}
     dev: true
 
-  /oxc-minify@0.94.0:
+  /oxc-minify@0.94.0(@emnapi/core@1.9.1)(@emnapi/runtime@1.9.1):
     resolution: {integrity: sha512-7+9iyxwpzfjuiEnSqNJYzTsC1Oud742PPkr/4S1bGY930U4tApdLEK8zmgbT57c1/56cfNOndqZaeQZiAfnJ5A==}
     engines: {node: ^20.19.0 || >=22.12.0}
     optionalDependencies:
@@ -34756,12 +34723,15 @@ packages:
       '@oxc-minify/binding-linux-s390x-gnu': 0.94.0
       '@oxc-minify/binding-linux-x64-gnu': 0.94.0
       '@oxc-minify/binding-linux-x64-musl': 0.94.0
-      '@oxc-minify/binding-wasm32-wasi': 0.94.0
+      '@oxc-minify/binding-wasm32-wasi': 0.94.0(@emnapi/core@1.9.1)(@emnapi/runtime@1.9.1)
       '@oxc-minify/binding-win32-arm64-msvc': 0.94.0
       '@oxc-minify/binding-win32-x64-msvc': 0.94.0
+    transitivePeerDependencies:
+      - '@emnapi/core'
+      - '@emnapi/runtime'
     dev: false
 
-  /oxc-parser@0.94.0:
+  /oxc-parser@0.94.0(@emnapi/core@1.9.1)(@emnapi/runtime@1.9.1):
     resolution: {integrity: sha512-refms9HQoAlTYIazONYkuX5A3rFGPddbD6Otyc+A0/pj1WTttR8TsZRlMzQxCfhexxfrbinqd7ebkEoYNuCmLQ==}
     engines: {node: ^20.19.0 || >=22.12.0}
     dependencies:
@@ -34779,12 +34749,15 @@ packages:
       '@oxc-parser/binding-linux-s390x-gnu': 0.94.0
       '@oxc-parser/binding-linux-x64-gnu': 0.94.0
       '@oxc-parser/binding-linux-x64-musl': 0.94.0
-      '@oxc-parser/binding-wasm32-wasi': 0.94.0
+      '@oxc-parser/binding-wasm32-wasi': 0.94.0(@emnapi/core@1.9.1)(@emnapi/runtime@1.9.1)
       '@oxc-parser/binding-win32-arm64-msvc': 0.94.0
       '@oxc-parser/binding-win32-x64-msvc': 0.94.0
+    transitivePeerDependencies:
+      - '@emnapi/core'
+      - '@emnapi/runtime'
     dev: false
 
-  /oxc-transform@0.94.0:
+  /oxc-transform@0.94.0(@emnapi/core@1.9.1)(@emnapi/runtime@1.9.1):
     resolution: {integrity: sha512-nHFFyPVWNNe7WLsAiQ6iwfsuTW/1esT+BJg+9rlvcSa0mfcZTpNo3TlBfj9IerLdDmYHJnSYsx8jjFZhoGfZ1w==}
     engines: {node: ^20.19.0 || >=22.12.0}
     optionalDependencies:
@@ -34800,9 +34773,12 @@ packages:
       '@oxc-transform/binding-linux-s390x-gnu': 0.94.0
       '@oxc-transform/binding-linux-x64-gnu': 0.94.0
       '@oxc-transform/binding-linux-x64-musl': 0.94.0
-      '@oxc-transform/binding-wasm32-wasi': 0.94.0
+      '@oxc-transform/binding-wasm32-wasi': 0.94.0(@emnapi/core@1.9.1)(@emnapi/runtime@1.9.1)
       '@oxc-transform/binding-win32-arm64-msvc': 0.94.0
       '@oxc-transform/binding-win32-x64-msvc': 0.94.0
+    transitivePeerDependencies:
+      - '@emnapi/core'
+      - '@emnapi/runtime'
     dev: false
 
   /oxc-walker@0.5.2(oxc-parser@0.94.0):
@@ -34811,7 +34787,7 @@ packages:
       oxc-parser: '>=0.72.0'
     dependencies:
       magic-regexp: 0.10.0
-      oxc-parser: 0.94.0
+      oxc-parser: 0.94.0(@emnapi/core@1.9.1)(@emnapi/runtime@1.9.1)
     dev: false
 
   /p-cancelable@1.1.0:
