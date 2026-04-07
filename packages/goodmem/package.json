@@ -45,7 +45,11 @@
     "lint:fix": "biome check . --write",
     "publint": "publint --strict",
     "test": "vitest",
-    "test:coverage": "vitest run --coverage"
+    "test:coverage": "vitest run --coverage",
+    "e2e:setup": "bash e2e/scripts/setup-goodmem.sh",
+    "e2e:run": "vitest run --config e2e/vitest.config.mts",
+    "e2e:teardown": "bash e2e/scripts/teardown-goodmem.sh",
+    "e2e": "npm run e2e:setup && npm run e2e:run; status=$?; npm run e2e:teardown; exit $status"
   },
   "types": "dist/index.d.ts"
 }
