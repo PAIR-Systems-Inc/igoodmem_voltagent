@@ -3,10 +3,14 @@ import { GoodMemClient } from "./client";
 import { createMemorySchema, executeCreateMemory } from "./tools/create-memory";
 import { createSpaceSchema, executeCreateSpace } from "./tools/create-space";
 import { deleteMemorySchema, executeDeleteMemory } from "./tools/delete-memory";
+import { deleteSpaceSchema, executeDeleteSpace } from "./tools/delete-space";
 import { executeGetMemory, getMemorySchema } from "./tools/get-memory";
+import { executeGetSpace, getSpaceSchema } from "./tools/get-space";
 import { executeListEmbedders, listEmbeddersSchema } from "./tools/list-embedders";
+import { executeListMemories, listMemoriesSchema } from "./tools/list-memories";
 import { executeListSpaces, listSpacesSchema } from "./tools/list-spaces";
 import { executeRetrieveMemories, retrieveMemoriesSchema } from "./tools/retrieve-memories";
+import { executeUpdateSpace, updateSpaceSchema } from "./tools/update-space";
 import type { GoodMemConfig } from "./types";
 
 // Re-export types for consumers
@@ -21,6 +25,10 @@ export { getMemorySchema } from "./tools/get-memory";
 export { deleteMemorySchema } from "./tools/delete-memory";
 export { listSpacesSchema } from "./tools/list-spaces";
 export { listEmbeddersSchema } from "./tools/list-embedders";
+export { getSpaceSchema } from "./tools/get-space";
+export { updateSpaceSchema } from "./tools/update-space";
+export { deleteSpaceSchema } from "./tools/delete-space";
+export { listMemoriesSchema } from "./tools/list-memories";
 
 /**
  * Create the full set of GoodMem tools bound to a specific API configuration.
@@ -97,6 +105,34 @@ export function createGoodMemTools(config: GoodMemConfig): Tool<any, any>[] {
         "List all available GoodMem embedder models. Use this to discover which embedders can be used when creating a new space.",
       parameters: listEmbeddersSchema,
       execute: (_args) => executeListEmbedders(client, _args),
+    }),
+    createTool({
+      name: "goodmem_get_space",
+      description:
+        "Fetch a specific GoodMem space by its ID, including embedders, chunking config, labels, and metadata.",
+      parameters: getSpaceSchema,
+      execute: (args) => executeGetSpace(client, args),
+    }),
+    createTool({
+      name: "goodmem_update_space",
+      description:
+        "Update a GoodMem space's name, public-read flag, or labels. Only the provided fields are changed.",
+      parameters: updateSpaceSchema,
+      execute: (args) => executeUpdateSpace(client, args),
+    }),
+    createTool({
+      name: "goodmem_delete_space",
+      description:
+        "Permanently delete a GoodMem space and all of its memories, chunks, and vector embeddings.",
+      parameters: deleteSpaceSchema,
+      execute: (args) => executeDeleteSpace(client, args),
+    }),
+    createTool({
+      name: "goodmem_list_memories",
+      description:
+        "List all memories within a specific GoodMem space, including their IDs, processing status, and metadata.",
+      parameters: listMemoriesSchema,
+      execute: (args) => executeListMemories(client, args),
     }),
   ];
 }

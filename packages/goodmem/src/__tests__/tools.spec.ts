@@ -8,10 +8,14 @@ import type { GoodMemClient } from "../client";
 import { executeCreateMemory } from "../tools/create-memory";
 import { executeCreateSpace } from "../tools/create-space";
 import { executeDeleteMemory } from "../tools/delete-memory";
+import { executeDeleteSpace } from "../tools/delete-space";
 import { executeGetMemory } from "../tools/get-memory";
+import { executeGetSpace } from "../tools/get-space";
 import { executeListEmbedders } from "../tools/list-embedders";
+import { executeListMemories } from "../tools/list-memories";
 import { executeListSpaces } from "../tools/list-spaces";
 import { executeRetrieveMemories } from "../tools/retrieve-memories";
+import { executeUpdateSpace } from "../tools/update-space";
 
 // ============================================================================
 // Mock Client Factory
@@ -694,5 +698,208 @@ describe("executeRetrieveMemories", () => {
     expect(result.success).toBe(true);
     expect(result.results).toHaveLength(1);
     expect(result.results[0].chunkText).toBe("valid");
+  });
+});
+
+// ============================================================================
+// Get Space
+// ============================================================================
+
+describe("executeGetSpace", () => {
+  let client: ReturnType<typeof createMockClient>;
+
+  beforeEach(() => {
+    client = createMockClient();
+  });
+
+  it("should fetch space by id", async () => {
+    client.request.mockResolvedValueOnce({
+      spaceId: "sp-1",
+      name: "My Space",
+      labels: { env: "test" },
+    });
+
+    const result = await executeGetSpace(client, { spaceId: "sp-1" });
+
+    expect(result.success).toBe(true);
+    expect(result.space.spaceId).toBe("sp-1");
+    expect(client.request).toHaveBeenCalledWith("GET", "/v1/spaces/sp-1");
+  });
+
+  it("should return error when space not found", async () => {
+    const error: any = new Error("Space not found");
+    error.responseBody = { code: "NOT_FOUND" };
+    client.request.mockRejectedValueOnce(error);
+
+    const result = await executeGetSpace(client, { spaceId: "nonexistent" });
+
+    expect(result.success).toBe(false);
+    expect(result.error).toBe("Space not found");
+  });
+});
+
+// ============================================================================
+// Update Space
+// ============================================================================
+
+describe("executeUpdateSpace", () => {
+  let client: ReturnType<typeof createMockClient>;
+
+  beforeEach(() => {
+    client = createMockClient();
+  });
+
+  it("should update space name", async () => {
+    client.request.mockResolvedValueOnce({ spaceId: "sp-1", name: "Renamed" });
+
+    const result = await executeUpdateSpace(client, {
+      spaceId: "sp-1",
+      name: "Renamed",
+    });
+
+    expect(result.success).toBe(true);
+    expect(result.space.name).toBe("Renamed");
+
+    const [method, path, body] = client.request.mock.calls[0];
+    expect(method).toBe("PUT");
+    expect(path).toBe("/v1/spaces/sp-1");
+    expect(body).toEqual({ name: "Renamed" });
+  });
+
+  it("should update publicRead and replaceLabels", async () => {
+    client.request.mockResolvedValueOnce({ spaceId: "sp-1", publicRead: true });
+
+    await executeUpdateSpace(client, {
+      spaceId: "sp-1",
+      publicRead: true,
+      replaceLabels: { env: "prod", team: "core" },
+    });
+
+    const body = client.request.mock.calls[0][2];
+    expect(body.publicRead).toBe(true);
+    expect(body.replaceLabels).toEqual({ env: "prod", team: "core" });
+    expect(body.name).toBeUndefined();
+  });
+
+  it("should support mergeLabels", async () => {
+    client.request.mockResolvedValueOnce({ spaceId: "sp-1" });
+
+    await executeUpdateSpace(client, {
+      spaceId: "sp-1",
+      mergeLabels: { added: "yes" },
+    });
+
+    const body = client.request.mock.calls[0][2];
+    expect(body.mergeLabels).toEqual({ added: "yes" });
+    expect(body.replaceLabels).toBeUndefined();
+  });
+
+  it("should reject when no fields provided", async () => {
+    const result = await executeUpdateSpace(client, { spaceId: "sp-1" });
+
+    expect(result.success).toBe(false);
+    expect(result.error).toContain("No fields provided");
+    expect(client.request).not.toHaveBeenCalled();
+  });
+
+  it("should return error on API failure", async () => {
+    client.request.mockRejectedValueOnce(new Error("Forbidden"));
+
+    const result = await executeUpdateSpace(client, {
+      spaceId: "sp-1",
+      name: "x",
+    });
+
+    expect(result.success).toBe(false);
+    expect(result.error).toBe("Forbidden");
+  });
+});
+
+// ============================================================================
+// Delete Space
+// ============================================================================
+
+describe("executeDeleteSpace", () => {
+  let client: ReturnType<typeof createMockClient>;
+
+  beforeEach(() => {
+    client = createMockClient();
+  });
+
+  it("should delete space successfully", async () => {
+    client.request.mockResolvedValueOnce(undefined);
+
+    const result = await executeDeleteSpace(client, { spaceId: "sp-1" });
+
+    expect(result.success).toBe(true);
+    expect(result.spaceId).toBe("sp-1");
+    expect(client.request).toHaveBeenCalledWith("DELETE", "/v1/spaces/sp-1");
+  });
+
+  it("should return error when delete fails", async () => {
+    client.request.mockRejectedValueOnce(new Error("Space not found"));
+
+    const result = await executeDeleteSpace(client, { spaceId: "nonexistent" });
+
+    expect(result.success).toBe(false);
+    expect(result.error).toBe("Space not found");
+  });
+});
+
+// ============================================================================
+// List Memories
+// ============================================================================
+
+describe("executeListMemories", () => {
+  let client: ReturnType<typeof createMockClient>;
+
+  beforeEach(() => {
+    client = createMockClient();
+  });
+
+  it("should list memories from wrapped response", async () => {
+    client.request.mockResolvedValueOnce({
+      memories: [
+        {
+          memoryId: "mem-1",
+          spaceId: "sp-1",
+          contentType: "text/plain",
+          processingStatus: "COMPLETED",
+        },
+        {
+          memoryId: "mem-2",
+          spaceId: "sp-1",
+          contentType: "application/pdf",
+          processingStatus: "PENDING",
+        },
+      ],
+    });
+
+    const result = await executeListMemories(client, { spaceId: "sp-1" });
+
+    expect(result.success).toBe(true);
+    expect(result.memories).toHaveLength(2);
+    expect(result.totalMemories).toBe(2);
+    expect(result.memories[0].memoryId).toBe("mem-1");
+    expect(result.memories[1].contentType).toBe("application/pdf");
+    expect(client.request).toHaveBeenCalledWith("GET", "/v1/spaces/sp-1/memories");
+  });
+
+  it("should handle array response", async () => {
+    client.request.mockResolvedValueOnce([{ memoryId: "mem-1", spaceId: "sp-1" }]);
+
+    const result = await executeListMemories(client, { spaceId: "sp-1" });
+
+    expect(result.success).toBe(true);
+    expect(result.totalMemories).toBe(1);
+  });
+
+  it("should return error on API failure", async () => {
+    client.request.mockRejectedValueOnce(new Error("Not found"));
+
+    const result = await executeListMemories(client, { spaceId: "nonexistent" });
+
+    expect(result.success).toBe(false);
+    expect(result.error).toBe("Not found");
   });
 });

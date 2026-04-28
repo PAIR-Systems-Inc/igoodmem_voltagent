@@ -46,13 +46,17 @@ const tools = goodmemTools.map((t) => createTool(t));
 
 | Tool                        | Description                                                                                                                         |
 | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `goodmem_list_embedders`    | List all available embedder models for use when creating spaces.                                                                    |
+| `goodmem_list_spaces`       | List all available spaces and their IDs.                                                                                            |
+| `goodmem_get_space`         | Fetch a single space by ID, including embedders, chunking config, and labels.                                                       |
 | `goodmem_create_space`      | Create a new space or reuse an existing one. A space is a logical container for organizing related memories with an embedder model. |
+| `goodmem_update_space`      | Update a space's name, public-read flag, or labels.                                                                                 |
+| `goodmem_delete_space`      | Permanently delete a space and all of its memories.                                                                                 |
 | `goodmem_create_memory`     | Store a document (text or file) as a new memory in a space. Supports PDF, DOCX, images, and plain text.                             |
+| `goodmem_list_memories`     | List all memories in a given space, with status and metadata.                                                                       |
 | `goodmem_retrieve_memories` | Perform semantic similarity search across one or more spaces. Returns ranked chunks with optional reranking and LLM generation.     |
 | `goodmem_get_memory`        | Fetch a specific memory by ID, including metadata and optionally the original content.                                              |
 | `goodmem_delete_memory`     | Permanently delete a memory and its associated chunks and embeddings.                                                               |
-| `goodmem_list_spaces`       | List all available spaces and their IDs.                                                                                            |
-| `goodmem_list_embedders`    | List all available embedder models for use when creating spaces.                                                                    |
 
 ## Configuration
 

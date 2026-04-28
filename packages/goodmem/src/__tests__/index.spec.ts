@@ -16,9 +16,9 @@ const TEST_CONFIG = {
 // ============================================================================
 
 describe("createGoodMemTools", () => {
-  it("should return 7 tools", () => {
+  it("should return 11 tools", () => {
     const tools = createGoodMemTools(TEST_CONFIG);
-    expect(tools).toHaveLength(7);
+    expect(tools).toHaveLength(11);
   });
 
   it("should return proper Tool instances with type discriminator", () => {
@@ -43,6 +43,10 @@ describe("createGoodMemTools", () => {
     expect(names).toContain("goodmem_delete_memory");
     expect(names).toContain("goodmem_list_spaces");
     expect(names).toContain("goodmem_list_embedders");
+    expect(names).toContain("goodmem_get_space");
+    expect(names).toContain("goodmem_update_space");
+    expect(names).toContain("goodmem_delete_space");
+    expect(names).toContain("goodmem_list_memories");
   });
 
   it("should create independent tool sets per call", () => {
@@ -79,7 +83,7 @@ describe("createGoodMemToolkit", () => {
     expect(toolkit.instructions).toBeDefined();
     expect(typeof toolkit.instructions).toBe("string");
     expect(toolkit.addInstructions).toBe(true);
-    expect(toolkit.tools).toHaveLength(7);
+    expect(toolkit.tools).toHaveLength(11);
   });
 
   it("should contain Tool instances in tools array", () => {
